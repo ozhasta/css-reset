@@ -1,1 +1,1 @@
-# My simple reset css configuration.
+# My simple css reset configuration.
