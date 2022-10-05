@@ -1,1 +1,1 @@
-# reset-css
+# My simple reset css configuration.
