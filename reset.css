@@ -21,10 +21,6 @@ body {
   line-height: 1.5;
 }
 
-a {
-  text-decoration-skip-ink: auto;
-}
-
 p {
   overflow-wrap: break-word;
 }
@@ -53,5 +49,4 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
-  height: auto;
 }
