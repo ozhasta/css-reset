@@ -1,47 +1,64 @@
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  /* Removes highlight that appears over a link while it's being tapped on mobile Chromium. */
+  -webkit-tap-highlight-color: transparent;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 html:focus-within {
   scroll-behavior: smooth;
 }
 
-html,
 body {
-  min-height: 100%;
-}
-
-body {
-  text-rendering: optimizeSpeed;
-  -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  overflow-wrap: break-word;
+  height: 100%;
 }
 
-p {
-  overflow-wrap: break-word;
-}
-
-:is(h1, h2, h3, h4, h5, h6) {
-  overflow-wrap: break-word;
+:where(h1, h2, h3, h4, h5, h6) {
   line-height: 1.1;
 }
 
-input,
-textarea,
-select,
-button {
+:where(input, textarea, select, button, optgroup) {
   font: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
 }
 
 img,
-picture,
 video,
+audio,
+picture,
 canvas,
-svg {
+svg,
+iframe {
   display: block;
   max-width: 100%;
+  /* Removes the weird space-below if the display property is overwritten. */
+  vertical-align: middle;
 }
+
+:where(button, input[type="button"], input[type="submit"], input[type="reset"])[disabled] {
+  cursor: not-allowed;
+}
+
+/* Uncomment for React/Next JS apps or delete this rule. 
+#root,
+#__next {
+  isolation: isolate;
+  height: 100%;
+} */
