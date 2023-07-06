@@ -12,8 +12,8 @@ html {
   text-size-adjust: none;
   /* Removes highlight that appears over a link while it's being tapped on mobile Chromium. */
   -webkit-tap-highlight-color: transparent;
-  height: 100%;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
 }
 
 html:focus-within {
@@ -28,6 +28,7 @@ body {
 
 :where(h1, h2, h3, h4, h5, h6) {
   line-height: 1.1;
+  text-wrap: balance;
 }
 
 :where(input, textarea, select, button, optgroup) {
