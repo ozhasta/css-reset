@@ -29,7 +29,6 @@ body {
 
 :where(input, textarea, select, button, optgroup) {
   font: inherit;
-  font-size: 1rem;
 }
 
 textarea {
