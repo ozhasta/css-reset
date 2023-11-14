@@ -27,7 +27,7 @@ body {
   text-wrap: balance;
 }
 
-:where(input, textarea, select, button, optgroup) {
+:where(input, textarea, select, button) {
   font: inherit;
 }
 
