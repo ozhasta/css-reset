@@ -7,12 +7,8 @@
 }
 
 html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
   /* Removes highlight that appears over a link while it's being tapped on mobile Chromium. */
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
   height: 100%;
 }
 
@@ -49,6 +45,7 @@ svg,
 iframe {
   display: block;
   max-width: 100%;
+  height: auto;
   /* Removes the weird space-below if the display property is overwritten. */
   vertical-align: middle;
 }
