@@ -6,57 +6,72 @@
   padding: 0;
 }
 
-html {
-  /* Removes highlight that appears over a link while it's being tapped on mobile Chromium. */
-  -webkit-tap-highlight-color: transparent;
-  height: 100%;
-}
-
-html:focus-within {
+:where(html) {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
   scroll-behavior: smooth;
 }
 
-body {
+:where(body) {
   line-height: 1.5;
   overflow-wrap: break-word;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
   line-height: 1.1;
   text-wrap: balance;
-  overflow-wrap: break-word;
+}
+
+:where(img, svg, picture, canvas, video, audio, iframe) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* Removes the weird space below inline elements if the display property is overridden. */
+  vertical-align: middle;
 }
 
 :where(input, textarea, select, button) {
   font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  /* TODO: test this again with dev tools */
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
-textarea {
+:where(textarea) {
   resize: vertical;
 }
 
-img,
-video,
-audio,
-picture,
-canvas,
-svg,
-iframe {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  /* Removes the weird space-below if the display property is overwritten. */
-  vertical-align: middle;
+:where(
+    a[href],
+    area,
+    button,
+    input:not(
+        [type="text"],
+        [type="email"],
+        [type="number"],
+        [type="password"],
+        [type="tel"],
+        [type="url"],
+        [type=""]
+      ),
+    label[for],
+    select,
+    summary,
+    [tabindex]:not([tabindex*="-"])
+  ) {
+  cursor: pointer;
+  /* Removes the weird highlight that appears on an item when it's tapped in mobile Chromium. */
+  -webkit-tap-highlight-color: transparent;
 }
 
-:where(button, input[type="button"], input[type="submit"], input[type="reset"])[disabled] {
-  cursor: not-allowed;
-}
-
-/* Uncomment for React/Next JS apps or delete this rule. 
-#root,
-#__next {
+/* Uncomment for React / Next JS apps or delete this rule.
+:where(#root, #__next) {
   isolation: isolate;
-  height: 100%;
-} */
+  min-height: 100svh;
+}
+*/
