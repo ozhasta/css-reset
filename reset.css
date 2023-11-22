@@ -32,20 +32,6 @@
   vertical-align: middle;
 }
 
-:where(input, textarea, select, button) {
-  font: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  /* TODO: test this again with dev tools */
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
-
-:where(textarea) {
-  resize: vertical;
-}
-
 :where(
     a[href],
     area,
@@ -56,22 +42,27 @@
         [type="number"],
         [type="password"],
         [type="tel"],
-        [type="url"],
-        [type=""]
+        [type="url"]
       ),
     label[for],
     select,
-    summary,
-    [tabindex]:not([tabindex*="-"])
-  ) {
+    summary
+  ):not(:disabled) {
   cursor: pointer;
-  /* Removes the weird highlight that appears on an item when it's tapped in mobile Chromium. */
+  /* Removes the weird feedback highlight that appears on an item when it's tapped in mobile Chromium. */
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Uncomment for React / Next JS apps or delete this rule.
-:where(#root, #__next) {
-  isolation: isolate;
-  min-height: 100svh;
+:where(input, textarea, select, button) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+
+  &:where(:disabled) {
+    cursor: not-allowed;
+  }
 }
-*/
+
+:where(textarea) {
+  resize: vertical;
+}
