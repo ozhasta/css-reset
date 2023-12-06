@@ -42,12 +42,13 @@
         [type="number"],
         [type="password"],
         [type="tel"],
-        [type="url"]
+        [type="url"],
+        [type="search"]
       ),
     label[for],
     select,
     summary
-  ):not(:disabled) {
+  ):not([disabled]) {
   cursor: pointer;
   /* Removes the weird feedback highlight that appears on an item when it's tapped in mobile Chromium. */
   -webkit-tap-highlight-color: transparent;
@@ -58,7 +59,7 @@
   color: inherit;
   letter-spacing: inherit;
 
-  &:where(:disabled) {
+  &:where([disabled]) {
     cursor: not-allowed;
   }
 }
